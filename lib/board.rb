@@ -4,8 +4,8 @@ class Board
 		@ship_positions = []
 	end
 
-	def place ship, cell		
-		@ship_positions += position
+	def place ship, cell, orientation		
+		@ship_positions += ext_coord(ship, cell, orientation)
 	end
 
 	def ext_coord ship, cell, orientation

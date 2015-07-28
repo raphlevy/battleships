@@ -12,5 +12,9 @@ subject = Ship.new
 		expect(subject.coordinates).to eq nil
 	end
 
+	it 'has a size' do
+		expect(subject.size).to eq Ship::DEFAULT_SIZE
+	end
+
 	
 end
