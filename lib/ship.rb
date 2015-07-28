@@ -1,12 +1,9 @@
 class Ship 
 	
-	def initialize location
-  @location = location
-	end
+	attr_accessor :coordinates 
 
-
-	def location 
-		@location
+	def initialize coordinates = nil
+  @coordinates = coordinates
 	end
 
 end
