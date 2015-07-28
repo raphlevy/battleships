@@ -2,7 +2,7 @@ require 'board'
 
 describe Board do
 
-	let(:ship) { double (:ship)}
+	let(:ship) { double (:ship), size: 3}
 
 	describe '#place' do
 		it 'place function exists' do
@@ -27,7 +27,7 @@ describe Board do
 				bound = subject.boundary
 				expect{ subject.place( ship, [bound-1,2], :horizontal) }.to raise_error "Co-ordinates must not go off the board!"
 			end
-	
+
 			it 'does not overlap' do
 				subject.place ship, [1,1], :vertical
 				expect{subject.place ship, [1,1], :vertical}.to raise_error"Boats cannot overlap"
@@ -35,6 +35,7 @@ describe Board do
 	  end
   end
 
+describe '#ext_coord' do
 	context 'size = 2' do
   let(:ship) { double (:ship), size: 2}
 		it 'calculates the coordinates from cell' do
@@ -44,7 +45,15 @@ describe Board do
 		it 'calculates the coordinates from cell' do
 		expect(subject.ext_coord(ship, [0,0], :vertical)).to match_array([[0,0],[0,1]])
 		end
-
 	end
+end
+
+describe '#hit?' do
+	it 'returns true when target cell belongs to @ship_positions' do
+		cell = [3,3]
+		subject.place ship, [3,3], :horizontal
+		expect(subject.hit? cell).to be true
+	end
+end
 
 end

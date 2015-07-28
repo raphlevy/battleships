@@ -36,7 +36,11 @@ class Board
 	end
 
 	def test_overlap extracted_coordinates
-		    fail "Boats cannot overlap" unless (extracted_coordinates&@ship_positions).empty? 
-    end 
+		    fail "Boats cannot overlap" unless (extracted_coordinates&@ship_positions).empty?
+	end
+
+	def hit? cell
+		@ship_positions.include?(cell)
+	end
 
 end
