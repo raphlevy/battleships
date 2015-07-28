@@ -21,13 +21,18 @@ describe Board do
 			expect{ subject.place(ship, [1, -3], :horizontal) }.to raise_error "Can't use negatve co-ordinates!"
 		end
 
-		context '#test_boundary' do
+		context '#test_boundary and overlap' do
 			let(:ship) { double (:ship), size: 3}
 			it 'does not accept x co-ordinates out of boundary' do
 				bound = subject.boundary
 				expect{ subject.place( ship, [bound-1,2], :horizontal) }.to raise_error "Co-ordinates must not go off the board!"
 			end
-		end
+	
+			it 'does not overlap' do
+				subject.place ship, [1,1], :vertical
+				expect{subject.place ship, [1,1], :vertical}.to raise_error"Boats cannot overlap"
+			end
+	  end
   end
 
 	context 'size = 2' do

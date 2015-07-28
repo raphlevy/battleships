@@ -12,6 +12,7 @@ class Board
 	def place ship, cell, orientation
 		test_negatives cell
 		positions = ext_coord(ship, cell, orientation)
+		test_overlap positions
 		test_boundary positions
 		@ship_positions += positions
 	end
@@ -33,5 +34,9 @@ class Board
 	def test_boundary extracted_coordinates
 			fail "Co-ordinates must not go off the board!" if extracted_coordinates.flatten.any? {|v| v > boundary-1}
 	end
+
+	def test_overlap extracted_coordinates
+		    fail "Boats cannot overlap" unless (extracted_coordinates&@ship_positions).empty? 
+    end 
 
 end
