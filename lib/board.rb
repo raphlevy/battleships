@@ -6,7 +6,7 @@ class Board
 
 	def initialize boundary = DEFAULT_BOUNDARY
 		@boundary = boundary
-		@ship_positions = []
+		@ship_positions = Hash.new
 	end
 
 	def place ship, cell, orientation
