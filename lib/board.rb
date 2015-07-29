@@ -2,11 +2,12 @@ class Board
 
 	DEFAULT_BOUNDARY = 10
 
-	attr_reader :boundary
+	attr_reader :boundary, :ship_list
 
 	def initialize boundary = DEFAULT_BOUNDARY
 		@boundary = boundary
-		@ship_positions = Hash.new
+		@ship_list = Hash.new
+		@ship_positions = []
 	end
 
 	def place ship, cell, orientation
@@ -16,6 +17,8 @@ class Board
 		test_boundary positions
 		@ship_positions += positions
 		ship.coordinates = positions
+		@ship_list[ship] = positions
+
 		#need to save to the ship its coordinates
 	end
 
