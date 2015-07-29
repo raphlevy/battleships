@@ -10,12 +10,8 @@ class Player
   end
 
   def fire cell
-    if board.hit? cell == true
-       board.delete cell
-      'Target hit!!'
-    else
-     'You missed sucka!!'
-    end
+    return 'Target hit!!' if board.hit? cell == true
+    'You missed sucka!!'
   end
 
 end
