@@ -15,6 +15,7 @@ class Board
 		test_overlap positions
 		test_boundary positions
 		@ship_positions += positions
+		#need to save to the ship its coordinates
 	end
 
 	def ext_coord ship, cell, orientation
