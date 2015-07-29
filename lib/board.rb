@@ -15,6 +15,7 @@ class Board
 		test_overlap positions
 		test_boundary positions
 		@ship_positions += positions
+		ship.coordinates = positions
 		#need to save to the ship its coordinates
 	end
 
@@ -44,7 +45,7 @@ class Board
 		@ship_positions.include?(cell)
 	end
 
-	def delete cell
+	def hit cell
 		@ship_positions.delete(cell)
 	end
 

@@ -16,5 +16,10 @@ subject = Ship.new
 		expect(subject.size).to eq Ship::DEFAULT_SIZE
 	end
 
+	it 'is sunk when empty' do
+		allow(subject).to receive(:coordinates).and_return([])
+		expect(subject.sink?).to eq true
+	end
+
 
 end

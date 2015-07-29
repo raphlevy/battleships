@@ -9,9 +9,15 @@ class Player
     @board = Board.new
   end
 
+
   def fire cell
-    return 'Target hit!!' if board.hit? cell == true
-    'You missed sucka!!'
+  
+	  if board.hit?(cell) == true
+		  board.hit(cell)
+		  return 'Target hit!!' 
+	  else
+		'You missed sucka!!'
+	  end
   end
 
 end

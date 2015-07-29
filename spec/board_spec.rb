@@ -2,7 +2,7 @@ require 'board'
 
 describe Board do
 
-	let(:ship) { double (:ship), size: 3}
+	let(:ship) { double (:ship), size: 3, :"coordinates=" => nil}
 
 	describe '#place' do
 		it 'place function exists' do
@@ -22,7 +22,7 @@ describe Board do
 		end
 
 		context '#test_boundary and overlap' do
-			let(:ship) { double (:ship), size: 3}
+			# let(:ship) { double (:ship), size: 3, :'coordinates=' => nil}
 			it 'does not accept x co-ordinates out of boundary' do
 				bound = subject.boundary
 				expect{ subject.place( ship, [bound-1,2], :horizontal) }.to raise_error "Co-ordinates must not go off the board!"

@@ -10,4 +10,17 @@ class Ship
   @size = size
 	end
 
+	def sink?
+		if coordinates.empty?	
+			true
+		else
+			false
+		end
+    end
+		
+
+	def delete cell
+		@coordinates.delete(cell)	
+	end
+
 end
