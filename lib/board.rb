@@ -44,4 +44,8 @@ class Board
 		@ship_positions.include?(cell)
 	end
 
+	def delete cell
+		@ship_positions.delete(cell)
+	end
+
 end
