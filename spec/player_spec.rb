@@ -10,14 +10,16 @@ describe Player do
   	before do
   		allow(ship).to receive(:'coordinates=').and_return([[3,3], [3,4]])
   	end
-  	
+
     it 'returns true when fire hits a ship' do
-    	subject.board.place ship, [3,3], :horizontal
-      expect(subject.fire [3,3]).to match('Target hit!!')
+	    subject.board.place ship, [3,3], :horizontal
+	    allow(ship).to receive(:delete)
+	      expect(subject.fire [3,3]).to eq('Target hit!!')
     end
 
     it 'returns false when fire does not hit a ship' do
     	subject.board.place ship, [3,3], :horizontal
+    	p subject.board.ship_list
       expect(subject.fire [0,0]).to match('You missed sucka!!')
     end
 
