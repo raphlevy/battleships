@@ -20,4 +20,8 @@ class Player
 	  end
   end
 
+  def end_game? 
+  	@board.ship_positions.empty?
+  end
+
 end

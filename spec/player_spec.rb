@@ -24,4 +24,9 @@ describe Player do
     end
 
   end
+
+  it 'returns true if my board is empty' do
+  	allow(subject.board).to receive(:ship_positions).and_return([])
+  	expect(subject.end_game?).to eq true
+  end
 end
