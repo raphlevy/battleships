@@ -96,4 +96,6 @@ describe Board do
 
 	end
 
+	#Need to write a test for ship_positions
+
 end
